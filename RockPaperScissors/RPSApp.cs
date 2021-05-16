@@ -7,15 +7,14 @@ namespace RockPaperScissors
     class RPSApp
     {
         
-        public static void Players()
+        public static List<Player> Players()
         {
          Console.WriteLine("What is your name?");
-         List<Player> players = new List<Player> { };
-         HumanPlayer player1 = new HumanPlayer(Console.ReadLine());
-         RockPlayer rocky = new RockPlayer("Rocky");
-         RandomPlayer randy = new RandomPlayer("Randy");
 
+            List<Player> players = new List<Player> { };
 
+         
+            HumanPlayer player1 = new HumanPlayer(Console.ReadLine());
             players.Add(player1);
 
             bool repeat = true;
@@ -26,12 +25,16 @@ namespace RockPaperScissors
 
                 if (opponent == "rock")
                 {
+                    RockPlayer rocky = new RockPlayer("Rocky");
                     players.Add(rocky);
+                    
                     Console.WriteLine("You chose to play a rock player");
                     repeat = false;
                 }
                 else if (opponent == "rand")
                 {
+                    
+                    RandomPlayer randy = new RandomPlayer("Randy");
                     players.Add(randy);
                     Console.WriteLine("You chose to play a random player");
                     repeat = false;
@@ -42,7 +45,9 @@ namespace RockPaperScissors
                     repeat = true;
 
                 }
+                
             }
+            return players;
         }
     }
 }

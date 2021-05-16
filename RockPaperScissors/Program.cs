@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace RockPaperScissors
 {
@@ -7,27 +8,104 @@ namespace RockPaperScissors
         static void Main(string[] args)
         {
             RPSApp.Players();
-            
-            
-            Console.WriteLine("Please make a selection: Rock, paper, scissors (r,p,s)");
+            bool repeat = true;
 
-            RandomPlayer randy = new RandomPlayer("");
+            while (repeat)
+            { 
+            Console.WriteLine("Please make a selection: Rock, paper, scissors");
+            string input = Console.ReadLine().ToLower();
+
+            RandomPlayer randy = new RandomPlayer("Randy");
             HumanPlayer player1 = new HumanPlayer("");
-
+            RockPlayer rocky = new RockPlayer("Rocky");
             player1.GenerateRPS();
             randy.GenerateRPS();
+            rocky.GenerateRPS();
 
-            if (player1.GenerateRPS() == RPS.rock && randy.GenerateRPS() == RPS.rock)
+            //Playing agains Randy (randomly picks what to play)
+            if (input == RPS.rock.ToString() && randy.GenerateRPS() == RPS.rock)
             {
+                Console.WriteLine($"{player1.Name}: {input}");
                 Console.WriteLine("Draw");
             }
-            else if (player1.GenerateRPS() == RPS.scissors && randy.GenerateRPS() == RPS.rock)
+            else if (input == RPS.scissors.ToString() && randy.GenerateRPS() == RPS.rock)
             {
+                Console.WriteLine($"{player1}: {input}");
                 Console.WriteLine("You Lose");
             }
-            else if (player1.GenerateRPS() == RPS.paper && randy.GenerateRPS() == RPS.rock)
+            else if (input == RPS.paper.ToString() && randy.GenerateRPS() == RPS.rock)
             {
+                Console.WriteLine($"{player1}: {input}");
                 Console.WriteLine("You Win!");
+            }
+
+
+            else if (input == RPS.rock.ToString() && randy.GenerateRPS() == RPS.paper)
+            {
+                Console.WriteLine($"{player1}: {input}");
+                Console.WriteLine("You lose...");
+            }
+            else if (input == RPS.scissors.ToString() && randy.GenerateRPS() == RPS.paper)
+            {
+                Console.WriteLine($"{player1}: {input}");
+                Console.WriteLine("You Win!");
+            }
+            else if (input == RPS.paper.ToString() && randy.GenerateRPS() == RPS.paper)
+            {
+                Console.WriteLine($"{player1}: {input}");
+                Console.WriteLine("Draw");
+            }
+
+
+            else if (input == RPS.rock.ToString() && randy.GenerateRPS() == RPS.scissors)
+            {
+                Console.WriteLine($"{player1}: {input}");
+                Console.WriteLine("You Win!");
+            }
+            else if (input == RPS.scissors.ToString() && randy.GenerateRPS() == RPS.scissors)
+            {
+                Console.WriteLine($"{player1}: {input}");
+                Console.WriteLine("Draw");
+            }
+            else if (input == RPS.paper.ToString() && randy.GenerateRPS() == RPS.scissors)
+            {
+                Console.WriteLine($"{player1}: {input}");
+                Console.WriteLine("You lose...");
+            }
+
+
+                //Playing Rocky (only throws rock)
+                if (input == RPS.rock.ToString() && rocky.GenerateRPS() == RPS.rock)
+                {
+                    Console.WriteLine($"{player1.Name}: {input}");
+                    Console.WriteLine("Rocky: rock");
+                    Console.WriteLine("Draw");
+                }
+                else if (input == RPS.scissors.ToString() && rocky.GenerateRPS() == RPS.rock)
+                {
+                    Console.WriteLine($"{player1}: {input}");
+                    Console.WriteLine("Rocky: rock");
+                    Console.WriteLine("You Lose");
+                }
+                else if (input == RPS.paper.ToString() && rocky.GenerateRPS() == RPS.rock)
+                {
+                    Console.WriteLine($"{player1}: {input}");
+                    Console.WriteLine("Rocky: rock");
+                    Console.WriteLine("You Win!");
+
+                }
+                Console.WriteLine("Would you like to play again? (y/n)");
+                string select = Console.ReadLine().ToLower();
+
+                if(select == "y")
+                {
+                    repeat = true;
+                }
+                else
+                {
+                    Console.WriteLine("Goodbye!");
+                    repeat = false;
+                }
             }
 
         }

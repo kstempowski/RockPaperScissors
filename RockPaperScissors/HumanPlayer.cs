@@ -10,12 +10,6 @@ namespace RockPaperScissors
         {
 
         }
-        public override RPS GenerateRPS()
-        {
-            int number = int.Parse(Console.ReadLine());
-            string choice = Enum.GetName(typeof(RPS), number);
-            return choice;
 
-        }
     }
 }

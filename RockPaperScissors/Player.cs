@@ -13,6 +13,20 @@ namespace RockPaperScissors
             Name = name;
         }
 
-        public abstract RPS GenerateRPS();
+        public virtual RPS GenerateRPS()
+        {
+            if (Name == "rock")
+            {
+                return RPS.rock;
+            }
+            else if (Name == "paper")
+            {
+                return RPS.paper;
+            }
+            else
+            {
+                return RPS.scissors;
+            }
+        }
     }
 }
