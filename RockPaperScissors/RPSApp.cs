@@ -9,13 +9,8 @@ namespace RockPaperScissors
         
         public static List<Player> Players()
         {
-         Console.WriteLine("What is your name?");
 
             List<Player> players = new List<Player> { };
-
-         
-            HumanPlayer player1 = new HumanPlayer(Console.ReadLine());
-            players.Add(player1);
 
             bool repeat = true;
             while (repeat)
@@ -26,8 +21,7 @@ namespace RockPaperScissors
                 if (opponent == "rock")
                 {
                     RockPlayer rocky = new RockPlayer("Rocky");
-                    players.Add(rocky);
-                    
+
                     Console.WriteLine("You chose to play a rock player");
                     repeat = false;
                 }
@@ -35,7 +29,6 @@ namespace RockPaperScissors
                 {
                     
                     RandomPlayer randy = new RandomPlayer("Randy");
-                    players.Add(randy);
                     Console.WriteLine("You chose to play a random player");
                     repeat = false;
                 }
@@ -44,10 +37,15 @@ namespace RockPaperScissors
                     Console.WriteLine("That is not a valid choice. Please choose again");
                     repeat = true;
 
-                }
-                
+                }  
             }
             return players;
+        }
+        public static string PlayerName()
+        {
+            Console.WriteLine("What is your name?");
+            string name = Console.ReadLine();
+            return name;
         }
     }
 }

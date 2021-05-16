@@ -7,17 +7,19 @@ namespace RockPaperScissors
     {
         static void Main(string[] args)
         {
+            HumanPlayer player1 = new HumanPlayer(RPSApp.PlayerName());
+            RandomPlayer randy = new RandomPlayer("Randy");
+            RockPlayer rocky = new RockPlayer("Rocky");
             RPSApp.Players();
             bool repeat = true;
 
             while (repeat)
             { 
+            
             Console.WriteLine("Please make a selection: Rock, paper, scissors");
             string input = Console.ReadLine().ToLower();
 
-            RandomPlayer randy = new RandomPlayer("Randy");
-            HumanPlayer player1 = new HumanPlayer("");
-            RockPlayer rocky = new RockPlayer("Rocky");
+
             player1.GenerateRPS();
             randy.GenerateRPS();
             rocky.GenerateRPS();
@@ -26,33 +28,36 @@ namespace RockPaperScissors
             if (input == RPS.rock.ToString() && randy.GenerateRPS() == RPS.rock)
             {
                 Console.WriteLine($"{player1.Name}: {input}");
+                Console.WriteLine(randy.Name);
                 Console.WriteLine("Draw");
             }
             else if (input == RPS.scissors.ToString() && randy.GenerateRPS() == RPS.rock)
             {
-                Console.WriteLine($"{player1}: {input}");
+                Console.WriteLine($"{player1.Name}: {input}");
+                Console.WriteLine($"{randy.Name}: rock");
                 Console.WriteLine("You Lose");
             }
             else if (input == RPS.paper.ToString() && randy.GenerateRPS() == RPS.rock)
             {
-                Console.WriteLine($"{player1}: {input}");
+                Console.WriteLine($"{player1.Name}: {input}");
+                Console.WriteLine(randy.Name);
                 Console.WriteLine("You Win!");
             }
 
 
             else if (input == RPS.rock.ToString() && randy.GenerateRPS() == RPS.paper)
             {
-                Console.WriteLine($"{player1}: {input}");
+                Console.WriteLine($"{player1.Name}: {input}");
                 Console.WriteLine("You lose...");
             }
             else if (input == RPS.scissors.ToString() && randy.GenerateRPS() == RPS.paper)
             {
-                Console.WriteLine($"{player1}: {input}");
+                Console.WriteLine($"{player1.Name}: {input}");
                 Console.WriteLine("You Win!");
             }
             else if (input == RPS.paper.ToString() && randy.GenerateRPS() == RPS.paper)
             {
-                Console.WriteLine($"{player1}: {input}");
+                Console.WriteLine($"{player1.Name}: {input}");
                 Console.WriteLine("Draw");
             }
 
@@ -74,24 +79,24 @@ namespace RockPaperScissors
             }
 
 
-                //Playing Rocky (only throws rock)
-                if (input == RPS.rock.ToString() && rocky.GenerateRPS() == RPS.rock)
-                {
-                    Console.WriteLine($"{player1.Name}: {input}");
-                    Console.WriteLine("Rocky: rock");
-                    Console.WriteLine("Draw");
-                }
-                else if (input == RPS.scissors.ToString() && rocky.GenerateRPS() == RPS.rock)
-                {
-                    Console.WriteLine($"{player1}: {input}");
-                    Console.WriteLine("Rocky: rock");
-                    Console.WriteLine("You Lose");
-                }
-                else if (input == RPS.paper.ToString() && rocky.GenerateRPS() == RPS.rock)
-                {
-                    Console.WriteLine($"{player1}: {input}");
-                    Console.WriteLine("Rocky: rock");
-                    Console.WriteLine("You Win!");
+                ////Playing Rocky (only throws rock)
+                //else if (input == RPS.rock.ToString() && rocky.GenerateRPS() == RPS.rock)
+                //{
+                //    Console.WriteLine($"{player1.Name}: {input}");
+                //    Console.WriteLine("Rocky: rock");
+                //    Console.WriteLine("Draw");
+                //}
+                //else if (input == RPS.scissors.ToString() && rocky.GenerateRPS() == RPS.rock)
+                //{
+                //    Console.WriteLine($"{player1}: {input}");
+                //    Console.WriteLine("Rocky: rock");
+                //    Console.WriteLine("You Lose");
+                //}
+                //else if (input == RPS.paper.ToString() && rocky.GenerateRPS() == RPS.rock)
+                //{
+                //    Console.WriteLine($"{player1}: {input}");
+                //    Console.WriteLine("Rocky: rock");
+                //    Console.WriteLine("You Win!");
 
                 }
                 Console.WriteLine("Would you like to play again? (y/n)");
@@ -110,4 +115,4 @@ namespace RockPaperScissors
 
         }
     }
-}
+
