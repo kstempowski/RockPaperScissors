@@ -20,11 +20,12 @@ namespace RockPaperScissors
                 string input = Console.ReadLine().ToLower();
 
 
-                player1.GenerateRPS();
-                randy.GenerateRPS();
-                rocky.GenerateRPS();
+                //player1.GenerateRPS();
+                //randy.GenerateRPS();
+                //rocky.GenerateRPS();
 
                 //Playing agains Randy (randomly picks what to play)
+
                 if (input == RPS.rock.ToString() && randy.GenerateRPS() == RPS.rock)
                 {
                     Console.WriteLine($"{player1.Name}: {input}");

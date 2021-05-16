@@ -21,7 +21,6 @@ namespace RockPaperScissors
                 if (opponent == "rock")
                 {
                     RockPlayer rocky = new RockPlayer("Rocky");
-
                     Console.WriteLine("You chose to play a rock player");
                     repeat = false;
                 }
