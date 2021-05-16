@@ -43,10 +43,6 @@ namespace RockPaperScissors
 
                 }
             }
-            Console.WriteLine("Choose rock, paper, or scissors (r,p,s)");
-            
-
-            
         }
     }
 }

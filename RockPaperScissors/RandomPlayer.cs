@@ -13,8 +13,8 @@ namespace RockPaperScissors
         public override RPS GenerateRPS()
         {
             var rand = new Random();
-            var choice = (RPS)rand.Next(3);
-            return choice;
+            
+            return (RPS)rand.Next(3);
         }
     }
 }
