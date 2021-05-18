@@ -6,7 +6,7 @@ namespace RockPaperScissors
 {
     public enum RPS
     {
-        rock = 1,
+        rock,
         paper,
         scissors
     }

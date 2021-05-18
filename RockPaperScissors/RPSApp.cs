@@ -18,7 +18,7 @@ namespace RockPaperScissors
                 bool playerSelect = true;
                 while (playerSelect)
                 {
-                Console.WriteLine("Who would you like to play against? Rock Player (rock), or Random Player (rand)?");
+                Console.WriteLine("Who would you like to play against? Rocky (rock), or Randy (rand)?");
                 string opponent = Console.ReadLine().ToLower();
                     if (opponent == "rock")
                     {
@@ -28,19 +28,19 @@ namespace RockPaperScissors
                         string input = Console.ReadLine().ToLower();
 
                         //Playing Rocky (only throws rock)
-                        if (input == RPS.rock.ToString() && rocky.GenerateRPS() == RPS.rock)
+                        if (input == RPS.rock.ToString())
                         {
                             Console.WriteLine($"{player1.Name}: {input}");
                             Console.WriteLine($"{ rocky.Name}: rock");
                             Console.WriteLine("Draw");
                         }
-                        else if (input == RPS.scissors.ToString() && rocky.GenerateRPS() == RPS.rock)
+                        else if (input == RPS.scissors.ToString())
                         {
                             Console.WriteLine($"{player1.Name}: {input}");
                             Console.WriteLine($"{ rocky.Name}: rock");
                             Console.WriteLine("You Lose");
                         }
-                        else if (input == RPS.paper.ToString() && rocky.GenerateRPS() == RPS.rock)
+                        else if (input == RPS.paper.ToString())
                         {
                             Console.WriteLine($"{player1.Name}: {input}");
                             Console.WriteLine($"{ rocky.Name}: rock");
@@ -66,7 +66,7 @@ namespace RockPaperScissors
                         {
                             Console.WriteLine($"{player1.Name}: {input}");
                             Console.WriteLine($"{randy.Name}: rock");
-                            Console.WriteLine("You Lose");
+                            Console.WriteLine("You lose...");
                         }
                         else if (input == RPS.paper.ToString() && randy.GenerateRPS() == RPS.rock)
                         {
@@ -122,15 +122,20 @@ namespace RockPaperScissors
                 Console.WriteLine("Would you like to play again? (y/n)");
                 string select = Console.ReadLine().ToLower();
 
-                if (select == "y")
-                {
-                    repeat = true;
-                }
-                else
-                {
-                    Console.WriteLine("Goodbye!");
-                    repeat = false;
-                }
+                    if (select == "y")
+                    {
+                        repeat = true;  
+                    }
+                    else if (select == "n")
+                    {
+                        Console.WriteLine("Goodbye!");
+                        repeat = false; 
+                    }
+                    else
+                    {
+                        Console.WriteLine("You didn't select yes or no. Goodbye.");
+                        repeat = false;
+                    }
             }
             return players;
 
